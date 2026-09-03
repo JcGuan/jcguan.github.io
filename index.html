@@ -1,60 +1,897 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-
-<nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="publications.html">Publications</a>
-    <a href="software.html">Software</a>
-    <a href="cv.html">CV</a>
-</nav>
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jingcheng | Computational Chemistry</title>
+    <title>Your Name | Research & Academic Portfolio</title>
+
+    <meta name="description"
+          content="Academic portfolio and research website for Your Name.">
+
+    <style>
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #1f2022;
+            color: #d6d6d6;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =========================================
+           HEADER / HERO
+        ========================================= */
+
+        #header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(20, 21, 23, 0.80),
+                    rgba(20, 21, 23, 0.92)
+                ),
+                url("images/hero.jpg") center/cover no-repeat;
+
+            position: relative;
+        }
+
+        .hero {
+            max-width: 900px;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 1.35rem;
+            font-weight: 300;
+            color: #bcbcbc;
+            line-height: 1.6;
+        }
+
+        .hero p {
+            margin-top: 25px;
+            color: #aaa;
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(25, 26, 28, 0.96);
+            border-bottom: 1px solid #38393b;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        nav li a {
+            display: block;
+            padding: 18px 22px;
+
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            color: #bbb;
+            transition: 0.3s;
+        }
+
+        nav li a:hover {
+            color: #ffffff;
+            background: #2c2d30;
+        }
+
+
+        /* =========================================
+           GENERAL SECTION
+        ========================================= */
+
+        section {
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #999;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #888;
+            margin: 20px auto;
+        }
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        #about {
+            background: #252629;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: #bcbcbc;
+        }
+
+
+        /* =========================================
+           RESEARCH
+        ========================================= */
+
+        #research {
+            background: #1f2022;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+        .research-card {
+            background: #292a2d;
+            border: 1px solid #393a3d;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            border-color: #777;
+        }
+
+        .research-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            filter: grayscale(20%);
+        }
+
+        .research-card-content {
+            padding: 25px;
+        }
+
+        .research-card h3 {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .research-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+
+        /* =========================================
+           SOFTWARE
+        ========================================= */
+
+        #software {
+            background: #292a2d;
+        }
+
+        .software-box {
+            max-width: 900px;
+            margin: auto;
+            padding: 45px;
+
+            background: #1f2022;
+            border: 1px solid #3d3e41;
+            text-align: center;
+        }
+
+        .software-box h3 {
+            font-size: 1.7rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .software-box p {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+
+            border: 1px solid #888;
+            color: #ffffff;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #ffffff;
+            color: #222;
+        }
+
+
+        /* =========================================
+           PROJECTS
+        ========================================= */
+
+        #projects {
+            background: #1f2022;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: #292a2d;
+            border: 1px solid #38393b;
+            padding-bottom: 25px;
+        }
+
+        .project img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        #contact {
+            background: #292a2d;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-content p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .contact-links {
+            margin-top: 30px;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 18px;
+
+            border: 1px solid #555;
+            color: #ccc;
+
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            background: #17181a;
+            padding: 35px 20px;
+            text-align: center;
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #aaa;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+
+        /* =========================================
+           RESPONSIVE DESIGN
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.1rem;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav li a {
+                padding: 12px 10px;
+                font-size: 0.72rem;
+            }
+
+            section {
+                padding: 70px 18px;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                display: block;
+                text-align: center;
+            }
+
+            nav li a {
+                padding: 9px;
+            }
+
+            .software-box {
+                padding: 25px 18px;
+            }
+        }
+    </style>
 </head>
+
 
 <body>
 
-    <h1>Dr Jingcheng Guan</h1>
+    <!-- =========================================
+         HERO
+    ========================================== -->
 
-    <p>
-        Computational chemistry, computational physics, materials chemistry, and scientific computing.
-    </p>
+    <header id="header">
 
-    <h2>About Me</h2>
+        <div class="hero">
 
-    <p>
-        I am an experienced computational scientist specialising in multiscale materials modelling, 
-        with a strong track record of high-impact research published in leading scientific journals. 
-        At the heart of my work is a passion for mathematics, which I regard not only as a rigorous scientific tool 
-        but also as a source of creativity and discovery. Building on this passion since my student years, 
-        I bring together computational physics, materials chemistry, and mathematics to develop innovative approaches 
-        to fundamental scientific challenges and contribute to a more sustainable future.
-    </p>
+            <h1>Your Name</h1>
 
-    <h2>Research</h2>
+            <h2>
+                Computational Materials Science<br>
+                Advanced Scientific Computing
+            </h2>
 
-    <p>
-        My research focuses on hybrid QM/MM embedding techniques, vibrational spectroscopy, and scientific computing.
-        I am interested in interacting phonons and local vibrations, anharmonic spectroscopic computation, 
-        machine-learning-assisted PES representation, physics of defects in materials, and catalysis.
-    </p>
+            <p>
+                Researcher • Scientist • Computational Modeller
+            </p>
 
-    <h2>Software</h2>
+        </div>
 
-    <p>
-        My software projects are (partly) available on GitHub.
-    </p>
+    </header>
 
-    <h2>Contact</h2>
 
-    <p>
-        Email: jingcheng.guan@ucl.ac.uk
-    </p>
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#software">Software</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- =========================================
+         ABOUT
+    ========================================== -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>About Me</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="about-content">
+
+                <p>
+                    I am a researcher specializing in computational science,
+                    numerical modelling and advanced scientific computing.
+                </p>
+
+                <p>
+                    My work combines mathematical modelling, high-performance
+                    computing and scientific simulation to investigate complex
+                    physical systems and develop predictive computational tools.
+                </p>
+
+                <p>
+                    I am particularly interested in multidisciplinary research,
+                    sustainable technologies and the application of computational
+                    methods to challenging scientific problems.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         RESEARCH
+    ========================================== -->
+
+    <section id="research">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Research Highlights</h2>
+
+                <div class="divider"></div>
+
+                <p>
+                    Selected areas of research and scientific interest
+                </p>
+
+            </div>
+
+
+            <div class="research-grid">
+
+
+                <article class="research-card">
+
+                    <img
+                        src="images/research-1.jpg"
+                        alt="Research project">
+
+                    <div class="research-card-content">
+
+                        <h3>
+                            Research Area One
+                        </h3>
+
+                        <p>
+                            Description of your research project. Explain the
+                            scientific problem, computational methods and the
+                            main objectives of the work.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="research-card">
+
+                    <img
+                        src="images/research-2.jpg"
+                        alt="Research project">
+
+                    <div class="research-card-content">
+
+                        <h3>
+                            Research Area Two
+                        </h3>
+
+                        <p>
+                            Describe another major research topic, including
+                            modelling techniques, computational approaches
+                            and scientific applications.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="research-card">
+
+                    <img
+                        src="images/research-3.jpg"
+                        alt="Research project">
+
+                    <div class="research-card-content">
+
+                        <h3>
+                            Research Area Three
+                        </h3>
+
+                        <p>
+                            Add a concise explanation of your research,
+                            highlighting the problem being investigated and
+                            why the work is important.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="research-card">
+
+                    <img
+                        src="images/research-4.jpg"
+                        alt="Research project">
+
+                    <div class="research-card-content">
+
+                        <h3>
+                            Research Area Four
+                        </h3>
+
+                        <p>
+                            Include another research highlight, publication
+                            area, project or scientific application here.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SOFTWARE
+    ========================================== -->
+
+    <section id="software">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Software</h2>
+
+                <div class="divider"></div>
+
+            </div>
+
+
+            <div class="software-box">
+
+                <h3>
+                    Your Software / Research Tool
+                </h3>
+
+                <p>
+                    A high-performance scientific software package,
+                    computational workflow or open-source research tool
+                    developed for your research.
+                </p>
+
+                <a
+                    class="button"
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener">
+
+                    View on GitHub
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         PERSONAL PROJECTS
+    ========================================== -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Personal Projects</h2>
+
+                <div class="divider"></div>
+
+                <p>
+                    Selected projects and interests
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <article class="project">
+
+                    <img
+                        src="images/project-1.jpg"
+                        alt="Computing project">
+
+                    <div class="project-content">
+
+                        <h3>
+                            Computational Project
+                        </h3>
+
+                        <p>
+                            Description of a personal computational,
+                            programming or scientific project.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <img
+                        src="images/project-2.jpg"
+                        alt="Music project">
+
+                    <div class="project-content">
+
+                        <h3>
+                            Music
+                        </h3>
+
+                        <p>
+                            A personal creative project, hobby or interest.
+                            Add links to recordings, photographs or other work.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <img
+                        src="images/project-3.jpg"
+                        alt="Programming project">
+
+                    <div class="project-content">
+
+                        <h3>
+                            Programming
+                        </h3>
+
+                        <p>
+                            Open-source software, simulations, experiments
+                            or other programming projects.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project">
+
+                    <img
+                        src="images/project-4.jpg"
+                        alt="Investment project">
+
+                    <div class="project-content">
+
+                        <h3>
+                            Other Interests
+                        </h3>
+
+                        <p>
+                            Add other interests, projects or activities that
+                            you would like visitors to know about.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CONTACT
+    ========================================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Contact</h2>
+
+                <div class="divider"></div>
+
+            </div>
+
+
+            <div class="contact-content">
+
+                <p>
+                    Feel free to contact me regarding research,
+                    collaboration or other enquiries.
+                </p>
+
+                <div class="contact-links">
+
+                    <a href="mailto:your.email@example.com">
+                        Email
+                    </a>
+
+                    <a
+                        href="https://github.com/"
+                        target="_blank"
+                        rel="noopener">
+                        GitHub
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/"
+                        target="_blank"
+                        rel="noopener">
+                        LinkedIn
+                    </a>
+
+                    <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener">
+                        Google Scholar
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 Your Name. All rights reserved.
+        </p>
+
+        <p>
+            Design inspired by
+            <a
+                href="https://html5up.net/"
+                target="_blank"
+                rel="noopener">
+                HTML5 UP
+            </a>
+        </p>
+
+    </footer>
+
 
 </body>
-
 </html>
